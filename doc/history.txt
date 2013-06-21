@@ -1,0 +1,16 @@
+0.06 - 2012/02/08
+       - Incorporated new config files supplied by Michael S.G.
+
+0.05 - 2012/02/08
+       - Removal of detection (to match new boards)
+
+0.04 - 2012/02/07
+       - Tested support for I-PACVE
+       - Support for new I-PAC2 with 32 inputs
+       - General cleanup of code, docs, config files
+0.03 - ???
+0.02 - ???
+0.01 - 2007/09/09
+   - Initial version 
+   - contains all major functions
+   - Tested only on I-PAC2/I-PAC4

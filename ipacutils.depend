@@ -1,0 +1,240 @@
+# depslib dependency file v1.0
+1329426624 source:/home/jim/code/ipacutils/cfg_util.c
+	"cfg_util.h"
+	<string.h>
+
+1329426348 /home/jim/code/ipacutils/cfg_util.h
+	<stdio.h>
+	<math.h>
+	"ipac_prog.h"
+	"cmd_line.h"
+
+1366286899 /usr/include/stdio.h
+	<features.h>
+	<stddef.h>
+	<bits/types.h>
+	<libio.h>
+	<stdarg.h>
+	<bits/stdio_lim.h>
+	<bits/sys_errlist.h>
+	<getopt.h>
+	<bits/stdio.h>
+	<bits/stdio2.h>
+	<bits/stdio-ldbl.h>
+
+1366286875 /usr/include/features.h
+	<stdc-predef.h>
+	<sys/cdefs.h>
+	<gnu/stubs.h>
+
+1366286875 /usr/include/stdc-predef.h
+	<bits/predefs.h>
+
+1366286899 /usr/include/libio.h
+	<_G_config.h>
+	<stdarg.h>
+	<sys/cdefs.h>
+	<bits/stdio-lock.h>
+	<shlib-compat.h>
+	<bits/libio-ldbl.h>
+
+1366286899 /usr/include/_G_config.h
+	<bits/types.h>
+	<stddef.h>
+	<wchar.h>
+	<gconv.h>
+
+1366286903 /usr/include/wchar.h
+	<features.h>
+	<stdio.h>
+	<stdarg.h>
+	<bits/wchar.h>
+	<stddef.h>
+	<wctype.h>
+	<xlocale.h>
+	<xlocale.h>
+	<xlocale.h>
+	<wctype.h>
+	<bits/wchar2.h>
+	<bits/wchar-ldbl.h>
+
+1366286910 /usr/include/wctype.h
+	<features.h>
+	<bits/types.h>
+	<wchar.h>
+	<endian.h>
+	<xlocale.h>
+
+1366286903 /usr/include/endian.h
+	<features.h>
+	<bits/endian.h>
+	<bits/byteswap.h>
+
+1366286876 /usr/include/xlocale.h
+
+1366286875 /usr/include/gconv.h
+	<features.h>
+	<wchar.h>
+	<stddef.h>
+
+1366286906 /usr/include/getopt.h
+	<ctype.h>
+
+1366286892 /usr/include/ctype.h
+	<features.h>
+	<bits/types.h>
+	<endian.h>
+	<xlocale.h>
+
+1366286895 /usr/include/math.h
+	<features.h>
+	<bits/huge_val.h>
+	<bits/huge_valf.h>
+	<bits/huge_vall.h>
+	<bits/inf.h>
+	<bits/nan.h>
+	<bits/mathdef.h>
+	<bits/mathcalls.h>
+	<bits/mathcalls.h>
+	<bits/mathcalls.h>
+	<bits/mathinline.h>
+	<bits/math-finite.h>
+
+1371826697 /home/jim/code/ipacutils/ipac_prog.h
+	<errno.h>
+	<fcntl.h>
+	<signal.h>
+	<stdio.h>
+	<stdlib.h>
+	<sys/types.h>
+	<usb.h>
+
+1366286897 /usr/include/errno.h
+	<features.h>
+	<bits/errno.h>
+
+1366286907 /usr/include/fcntl.h
+	<features.h>
+	<bits/types.h>
+	<bits/fcntl.h>
+	<time.h>
+	<bits/stat.h>
+	<bits/fcntl2.h>
+
+1366286904 /usr/include/time.h
+	<features.h>
+	<stddef.h>
+	<bits/time.h>
+	<bits/types.h>
+	<bits/types.h>
+	<bits/types.h>
+	<bits/types.h>
+	<bits/types.h>
+	<xlocale.h>
+
+1366286896 /usr/include/signal.h
+	<features.h>
+	<bits/sigset.h>
+	<bits/types.h>
+	<bits/signum.h>
+	<time.h>
+	<bits/siginfo.h>
+	<bits/sigaction.h>
+	<bits/sigcontext.h>
+	<stddef.h>
+	<bits/sigstack.h>
+	<sys/ucontext.h>
+	<bits/pthreadtypes.h>
+	<bits/sigthread.h>
+
+1366286897 /usr/include/stdlib.h
+	<features.h>
+	<stddef.h>
+	<bits/waitflags.h>
+	<bits/waitstatus.h>
+	<xlocale.h>
+	<sys/types.h>
+	<alloca.h>
+	<bits/stdlib-float.h>
+	<bits/stdlib.h>
+	<bits/stdlib-ldbl.h>
+
+1366286897 /usr/include/alloca.h
+	<features.h>
+	<stddef.h>
+
+1353640300 /usr/include/usb.h
+	<unistd.h>
+	<stdlib.h>
+	<stdint.h>
+	<limits.h>
+	<sys/param.h>
+	<dirent.h>
+
+1366286906 /usr/include/unistd.h
+	<features.h>
+	<bits/posix_opt.h>
+	<bits/environments.h>
+	<bits/types.h>
+	<stddef.h>
+	<bits/confname.h>
+	<getopt.h>
+	<bits/unistd.h>
+
+1366286897 /usr/include/stdint.h
+	<features.h>
+	<bits/wchar.h>
+	<bits/wordsize.h>
+
+1366286875 /usr/include/limits.h
+	<features.h>
+	<bits/wordsize.h>
+	<bits/posix1_lim.h>
+	<bits/posix2_lim.h>
+	<bits/xopen_lim.h>
+
+1366286905 /usr/include/dirent.h
+	<features.h>
+	<bits/types.h>
+	<bits/dirent.h>
+	<bits/types.h>
+	<bits/posix1_lim.h>
+	<stddef.h>
+
+1329426573 /home/jim/code/ipacutils/cmd_line.h
+	<stdio.h>
+
+1366286903 /usr/include/string.h
+	<features.h>
+	<stddef.h>
+	<xlocale.h>
+	<bits/string.h>
+	<bits/string2.h>
+	<bits/string3.h>
+
+1329426287 source:/home/jim/code/ipacutils/cmd_line.c
+	"cmd_line.h"
+	"ipac_prog.h"
+	<string.h>
+	"util.h"
+
+1189368588 /home/jim/code/ipacutils/util.h
+	<stdio.h>
+	<stdarg.h>
+
+1328735777 source:/home/jim/code/ipacutils/ipac_prog.c
+	<errno.h>
+	<stdio.h>
+	<string.h>
+	"ipac_prog.h"
+	"util.h"
+
+1329428368 source:/home/jim/code/ipacutils/main.c
+	"cfg_util.h"
+	"cmd_line.h"
+	"string.h"
+	"util.h"
+
+1189368588 source:/home/jim/code/ipacutils/util.c
+	"util.h"
+

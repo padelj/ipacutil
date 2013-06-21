@@ -1,0 +1,66 @@
+.\" Process this file with
+.\" groff -man -Tascii ipacutil.8
+.\"
+.TH IPACUTIL 8 "September 2007" "I-PAC Tools" "User Manuals"
+.SH NAME
+ipacutil \- I-PAC keyboard encoder configuration utility (USB only)
+.SH SYNOPSIS
+.B ipacutil [-h] [--help] [-v] [--verbose] [-q] [--quiet] [-d] [--detect] [-n] [--no_program] [-r] [-reset] [-a] [--ram] [-b 
+.I board_num
+.B ] [--board 
+.I board_num
+.B ] [-c 
+.I config_file
+.B ] [--config 
+.I config_file
+.B ] [-w 
+.I config_file
+.B ] [--write_cfg 
+.I config_file
+.B ] [-t 
+.I type
+.B ] [--type 
+.I type
+.B ]
+.SH DESCRIPTION
+.B ipacutil
+programs I-PAC keyboard encoders attached to the system.  
+.IP "-h, --help"
+Print program usage help
+.IP "-v, --verbose"
+Turn on verbose mode
+.IP "-q, --quiet"
+Turn on quiet mode (only print errors)
+.IP "-d, --detect"
+Attempt to detect connected I-PACs
+.IP "-r, --reset"
+Reset programming to factory default
+.IP "-a, --ram"
+Program to RAM only, not saved across power cycle
+.IP "-n, --no_program"
+Don't program the I-PAC.  This isn't really useful any longer and will probably be removed soon
+.IP "-b board-num, --board board-num"
+Used when more than 1 I-PAC is connected via USB.  Use -d/--detect to determine board number
+.IP "-c config-file,  --cfg config-file"
+Use the specified config file to program the I-PAC.  See also 
+.IP "-w config-file, --write_cfg config-file"
+Write a default config file to the specified file.  The defaults 
+correspond to the function when the MAME jumper is on. See also 
+.IP "-t board_type, --type board_type"
+Used with -w/--write_cfg to generate the correct type of config file.  
+Options are: ipac2, ipac4, ipacve, minipacve
+.B ipacconf(5)
+.SH BUGS
+Currently only works with USB I-PACs.  PS/2 is not supported yet.
+.SH EXAMPLES
+.IP "To detect connected I-PACs, try:"
+ipacutil --detect 
+.SH AUTHOR
+Travis Veldkamp <tlvmail at bigfoot dot com>
+.SH COPYRIGHT
+Copyright \(co 2007 Travis Veldkamp
+.br
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+.SH "SEE ALSO"
+.BR ipacconf(5)

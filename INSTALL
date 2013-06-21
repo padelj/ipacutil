@@ -1,0 +1,16 @@
+To install ipacutil:
+
+0) You will need libusb-dev installed.  On Ubuntu, type:
+	sudo apt-get install libusb-dev
+
+1) edit the Makefile as necessary.  You probably don't have to touch it.  Note that
+   only USB is supported (not PS/2)
+
+2) make
+
+3) make install
+
+You may be able to run "ipacutil --detect" to see if it sees your I-PAC.  However, even if
+it is not properly detected, it can probably be programmed.  Newer models do not have the detection
+logic.
+

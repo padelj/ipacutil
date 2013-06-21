@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ipacutils" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/ipacutils" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="-v -d" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="/usr/include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="/usr/include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="usb" />
+					<Add directory="/usr/include" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/ipacutils" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="-d" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="/usr/include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="/usr/include" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="usb" />
+					<Add directory="/usr/include" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="/usr/include" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="/usr/include" />
+		</ResourceCompiler>
+		<Linker>
+			<Add library="usb" />
+			<Add directory="/usr/include" />
+		</Linker>
+		<Unit filename="cfg_util.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cfg_util.h" />
+		<Unit filename="cmd_line.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cmd_line.h" />
+		<Unit filename="ipac_prog.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ipac_prog.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="util.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="util.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
