@@ -2,7 +2,7 @@
 bin/*
 obj/*
 *.layout
-*.depends
+*.depend
 *.cbp
 
 # Objects
