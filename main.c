@@ -33,8 +33,8 @@
 
 
 static const int MAJOR_VERSION = 0;
-static const int MINOR_VERSION = 7;
-static const int VERSION_DATE  = 20120216;
+static const int MINOR_VERSION = 8;
+static const int VERSION_DATE  = 20130621;
 
 /*************************************************************************
  * GLOBAL VARIABLES                                                      *
@@ -90,8 +90,8 @@ int main(int argc, char **argv) {
    FILE *loghdl = openlog("ipacutil.log");
    int numipacs;
 
-   if (loghdl == NULL) { 
-       loghdl = stdout; 
+   if (loghdl == NULL) {
+       loghdl = stdout;
        printf("Failed to open ipacutil.log.  Dumping garbage to screen\n");
    };
 
@@ -158,7 +158,7 @@ int main(int argc, char **argv) {
       {
           printv(settings.verbose, VERBOSE_NORMAL, "Error: no I-PACs found\n");
       }
-      
+
       for(idx=0; idx<numipacs; idx++) {
          rc = detect_ipac_model(idx, loghdl);
      	 printl(0, 0, loghdl, "detect returned: %d\n", rc);
@@ -222,7 +222,7 @@ int main(int argc, char **argv) {
 
    } else {
       exit(1);
-   } 
+   }
 
    if (settings.board_type < 0) {
       printe("No board type is specified.  Either use the -t option or a config file\n");
@@ -235,14 +235,14 @@ int main(int argc, char **argv) {
    if (settings.ram_only) {
       control |= CONTROL_RAM_ONLY;
    }
-   error = program_ipac(settings.board_number, settings.board_type, 
+   error = program_ipac(settings.board_number, settings.board_type,
                         cfg_data, TRUE, control, loghdl);
    printl(0, 0, loghdl, "program_ipac returned: %d\n", error);
 
    if (loghdl != stdout) {
       closelog(loghdl);
    }
-   
+
    /* Try to get kernel driver to reclaim device */
    re_enumerate(0, loghdl);
 

@@ -194,7 +194,7 @@ static char default_ipac4[96] = { 0x10, 0xF5, 0xF4, 0x14, 0xEB, 0x29, 0xF2, 0x1A
 #define VENDOR_ID_ULTIMARC       0xD209  /* Older models */
 #define PRODUCT_ID_IPAC_USB      0x0301
 
-#define VENDOR_ID_ULTIMARC_2       0xD208  /* Newer models */
+#define VENDOR_ID_ULTIMARC_2       0xD208  /* New model MiniPac */
 #define PRODUCT_ID_IPAC_USB_2     0x0310
 
 /* Number of I-PACs connected to 1 PC that we support */
