@@ -1,0 +1,11 @@
+Q) How do I generate a default config file?
+A) ipacutil -w my.cfg -t ipac2
+   The above will write an ipac2 style config file to my.cfg
+
+
+Q) How do I enter a key code for a key that sends 2 codes (E0 and another - for
+   example, R CTRL sends E0, 14)
+
+A) Add 0x80 to the 2nd code (ie, set MSB high).  For example, R CTRL becomes
+   0x14 + 0x80 = 0x94.  If all this hexadecimal stuff is too confusing, just
+   use a calculator that supports hex.... ie kcalc

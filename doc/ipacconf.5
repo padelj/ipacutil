@@ -1,0 +1,161 @@
+.\" Process this file with
+.\" groff -man -Tascii ipacconf.5
+.\"
+.TH IPACCONF 5 "September 2007" "I-PAC Tools" "User Manuals"
+.SH NAME
+ipacconf \- A config file for programming an I-PAC using ipacutil
+.SH SECTIONS
+A config file for ipacutil is composed of several sections that tell
+ipacutil how to program an I-PAC.  Each section starts with an identifier
+enclosed in braces and ends with a period (.) at the start of a line.  
+Every other line within a section is either a variable definition or
+a comment.  Comment lines start with a hash (#) character in column 1.
+A variable definition is always only 1 line and composed of variable name,
+value and a variable comment, making up 3 columns, each separated by
+a tab (actually, any whitespace will work).
+See the example file at the end of this document for more information.
+.P
+The currently defined sections are:
+.P
+.B Misc
+.P
+This section currently should contain the variable ShiftCode and BoardType.
+In the MAME configuration, ShiftCode is defined as 0x12.  To disable
+shifted operation, use 0xFF.  To change an I-PAC so it responds as
+board 2, use 0xFE as the shift code. BoardTypes are: ipac2 - 0, ipac4 - 1, ipacve - 2, minipacve - 3
+
+.P 
+.B Unshifted
+.P
+The unshifted section contains a list of input descriptions.
+Column 1 is the keynumber, starting with 1 (to X, board dependent).  Column
+2 is the scan code that the I-PAC will send when that input is detected.
+The 3rd column is a comment that must start with ";" and should contain
+the the label of the input as seen on the I-PAC board.  This last column
+is entirely for the user -- ipacutil doesn't care about it.  It should 
+always be included to make the config file easier to read.
+.B 
+
+.P
+.B Shifted
+.P
+The shifted section is very similar to unshifted section, but should
+contain the scan codes sent when the shift button is pressed (as defined
+by ShiftCode in the Misc section).  
+
+.SH "EXAMPLE CONFIG FILE"
+#There should be (at least) 3 sections in this file - Misc/Unshifted/Shifted
+.P
+#Each section ends with a . and starts with [xxxx]
+.P
+#Each section contains 1 or more variable settings
+.P
+#Format is:
+.P
+#variable	value	;comment
+.P
+#Where each column is separated by a tab
+.P
+.P
+#The Misc section should contain two entries: ShiftCode and BoardType
+.P
+#This is the I-PAC input connection used for the shift button
+.P
+#In the MAME setting, the shift button is: 0x10
+.P
+#Valid values are: 0x01 - 0x1C
+.P
+#FF indicates no shift code
+.P
+#The shift code corresponds to the I-PAC input pin.
+.P
+#You can determine this by using the 1st column in the
+.P
+#unshifted section, below.  For example, the default is 
+.P
+#0x12, which is decimal 18.  Looking at line 18 in the unshifted section,
+.P
+#you can see that it corresponds to Start 1
+.P
+[Misc]
+.P
+ShiftCode	0x12	;1P Start
+.P
+\.
+.P
+
+#I-PAC2 example:
+#First column is I-PAC input pin
+#Second column is keycode to send
+#Third column is input name - key name being sent
+[Unshifted]
+1	0xF5	;1 Up - up arrow
+2	0xF4	;1 Right - right arrow
+3	0x14	;1 Bt 1 - L-Ctrl
+4	0xEB	;1 Left - Left arrow
+5	0x29	;1 Bt 3 - space
+6	0xF2	;1 Down - down arrow
+7	0x1A	;1 Bt 5 - z
+8	0x11	;1 Bt 2 - alt
+9	0x34	;2 Right - g
+10	0x12	;1 Bt 4 - Left shift
+11	0x23	;2 Left - d
+12	0x22	;1 Bt 6 - x
+13	0x2D	;2 Up - r
+14	0x2B	;2 Down - f
+15	0x1C	;2 Bt 1 - a
+16	0x16	;Start 1 - 1
+17	0x1B	;2 Bt 2 - s
+18	0x1E	;Start 2 - 2
+19	0x15	;2 Bt 3 - q
+20	0x2E	;Coin 1 - 5
+21	0x1D	;2 Bt 4 - w
+22	0x36	;Coin 2 - 6
+23	0x43	;2 Bt 5 - i
+24	0x21	;1 Bt 7 - c
+25	0x42	;2 Bt 6 - k
+26	0x2A	;1 Bt 8 - v
+27	0x3B	;2 Bt 7 - j
+28	0x4B	;2 Bt 8 - l
+\.
+
+[Shifted]
+1	0x0E	;1 Up - ~ (Tilde)
+2	0x0D	;1 Right - TAB
+3	0x2E	;1 Bt 1 - 5
+4	0x5A	;1 Left - Enter
+5	0x00	;1 Bt 3
+6	0x4D	;1 Down - p
+7	0x00	;1 Bt 5
+8	0x00	;1 Bt 2
+9	0x00	;2 Right
+10	0x00	;1 Bt 4
+11	0x00	;2 Left
+12	0x00	;1 Bt 6
+13	0x00	;2 Up
+14	0x00	;2 Down
+15	0x00	;2 Bt 1
+16	0x16	;Start 1
+17	0x00	;2 Bt 2
+18	0x76	;Start 2 - ESC
+19	0x00	;2 Bt 3
+20	0x00	;Coin 1
+21	0x00	;2 Bt 4
+22	0x00	;Coin 2
+23	0x00	;2 Bt 5
+24	0x00	;1 Bt 7
+25	0x00	;2 Bt 6
+26	0x00	;1 Bt 8
+27	0x00	;2 Bt 7
+28	0x35	;2 Bt 8 - y for prog
+\.
+.DE
+.SH AUTHOR
+Travis Veldkamp <tlvmail at bigfoot dot com>
+.SH COPYRIGHT
+Copyright \(co 2007 Travis Veldkamp
+.br
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+.SH "SEE ALSO"
+.BR ipacutil(1)

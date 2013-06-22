@@ -1,0 +1,29 @@
+After installing ipacutil, you can try the following:
+
+1) See if ipacutil sees your I-PAC:
+   sudo ipacutil -d
+
+   NOTE: Newer I-PACs do not have logic for model detection.  Use the correct board type
+         in the config file
+
+2) Try programming your I-PAC
+   There are config files for each supported board in the config dir.  To program:
+
+   ipacutil -c ipac2.conf
+    -or-
+   ipacutil -c ipac4.conf
+    -or-
+   ipacutil -c ipacve.conf
+    -or-
+   ipacutil -c minipacve.conf
+
+Those config files should be equivalent to the factory defaults
+
+3) Generate a config file
+   ipacutil -w myconfig.cfg
+
+4) Modify the config file
+   The config file is a simple text file.  Make the changes to the entries you'd like
+   and try programming again.
+
+   Use the key listing in the doc directory for help

@@ -1,0 +1,2 @@
+- Create a configure script (autoconf)
+- Strip out detection logic entirely.  It only works with older boards and really isn't necessary.  Instead rely on USB scan to detect generic I-PACs (but no way to detect models)
