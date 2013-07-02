@@ -4,6 +4,7 @@ obj/*
 *.layout
 *.depend
 *.cbp
+ipacutil
 
 # Objects
 *.o
