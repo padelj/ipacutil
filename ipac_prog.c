@@ -27,10 +27,8 @@ int find_ipacs(struct usb_device *dev_arr[], int max_num) {
   for (bus = usb_busses; bus; bus = bus->next) {
 
       for (dev = bus->devices; dev; dev = dev->next) {
-         if (((dev->descriptor.idVendor  == VENDOR_ID_ULTIMARC) &&
-             (dev->descriptor.idProduct == PRODUCT_ID_IPAC_USB)) ||
-             ((dev->descriptor.idVendor  == VENDOR_ID_ULTIMARC_2) &&
-             (dev->descriptor.idProduct == PRODUCT_ID_IPAC_USB_2))) {
+         if ((dev->descriptor.idVendor  == VENDOR_ID_ULTIMARC) && 
+             (dev->descriptor.idProduct == PRODUCT_ID_IPAC_USB)) { 
 
             //printf("Ultimarc IPAC found\n");
             dev_arr[idx] = dev;
@@ -55,11 +53,11 @@ int enter_program_mode(usb_dev_handle *ipac_hdl) {
                             USB_REQUEST_TYPE_HD_VENDOR_OTHER, /* request type */
                             IPAC_REQUEST_PROGRAM_MODE,        /* request */
                             1,                                /* value */
-                            0,                                /* index */
+                            0,                                /* index */ 
                             NULL,                             /* buffer */
                             0,                                /* num bytes */
                             IPAC_USB_TIMEOUT);                /* timeout */
-
+   
    return result;
 }
 
@@ -112,10 +110,10 @@ int get_response(usb_dev_handle *ipac_hdl) {
         case RESP_GOOD:
           retval = 0;
           break;
-        case RESP_CKSUM_IPAC2:
-        case RESP_CKSUM_IPAC4:
-        case RESP_CKSUM_IPACVE:
-        case RESP_CKSUM_MINIPACVE:
+        case RESP_CKSUM_IPAC2: 
+        case RESP_CKSUM_IPAC4: 
+        case RESP_CKSUM_IPACVE: 
+        case RESP_CKSUM_MINIPACVE: 
           //printf("Checksum error detected\n");
           retval = response;
           break;
@@ -211,14 +209,14 @@ int program_ipac(int ipac_num, int board_type, char *datablock, int gen_checksum
       close_ipac(ipac_hdl);
       return -2;
    }
-
-   for(curpass=0; curpass < passes; curpass++) {
+ 
+   for(curpass=0; curpass < passes; curpass++) { 
       if (curpass) data = datablock2;
 
       /* Log the data for debugging */
       printl(0,0,loghdl,"program_ipac: pass; %d\n", curpass);
-      printl(0,0,loghdl,"Data block:\n");
-      for(i=0; i<IPAC_DATA_LEN; i++)
+      printl(0,0,loghdl,"Data block:\n");      
+      for(i=0; i<IPAC_DATA_LEN; i++) 
       {
          printl(0,0,loghdl,"0x%0.2x ", data[i] & 0xFF);
       }
@@ -228,7 +226,7 @@ int program_ipac(int ipac_num, int board_type, char *datablock, int gen_checksum
       for(i=0; i<3; i++) {
          result = send_block(ipac_hdl, data);
          data += IPAC_BLOCK_LEN;
-         if (result != 0)
+         if (result != 0) 
          {
             //printf("send_data failed on block %d\n", i);
             exit_program_mode(ipac_hdl);
@@ -247,7 +245,7 @@ int program_ipac(int ipac_num, int board_type, char *datablock, int gen_checksum
 
    close_ipac(ipac_hdl);
 
-   return result;
+   return result; 
 }
 
 /* Tell the ipac we're done */
@@ -256,14 +254,14 @@ int exit_program_mode(usb_dev_handle *ipac_hdl) {
 
    int result;
 
-   // TODO: constants
+   // TODO: constants 
    result = usb_control_msg(ipac_hdl,
-                            USB_REQUEST_TYPE_HD_VENDOR_OTHER,
-                            IPAC_REQUEST_PROGRAM_MODE,
+                            USB_REQUEST_TYPE_HD_VENDOR_OTHER, 
+                            IPAC_REQUEST_PROGRAM_MODE, 
+                            0, 
                             0,
-                            0,
-                            NULL,
-                            0,
+                            NULL, 
+                            0, 
                             IPAC_USB_TIMEOUT);
 
    return result;
@@ -285,14 +283,14 @@ char compute_checksum(char *data, int len) {
 /* Returns board type # */
 /* Returns -1 on error */
 /* WARNING: new I-PAC boards have had the detection logic stripped out.  There is no longer
- * any way to detect them as the USB descriptors also have nothing unique to look for.  I am
+ * any way to detect them as the USB descriptors also have nothing unique to look for.  I am 
  * changing detection to default to I-PAC2 (32 input) when detection fails in a manner consistent
  * with the new behavior
  */
 int detect_ipac_model(int ipac_num, FILE *loghdl) {
 
   int res;
-  struct usb_device *ipac;
+  struct usb_device *ipac; 
   usb_dev_handle *ipac_hdl;
   int boardType = BOARD_TYPE_IPAC2_28;
 
@@ -303,7 +301,7 @@ int detect_ipac_model(int ipac_num, FILE *loghdl) {
   default_ipac2[MINIPACVE_NUM_KEYCODES+1] = compute_checksum(default_ipac2, MINIPACVE_NUM_KEYCODES) + 1;
 
 
-  res = program_ipac(ipac_num, boardType, default_ipac2,
+  res = program_ipac(ipac_num, boardType, default_ipac2, 
                      FALSE, CONTROL_RAM_ONLY, loghdl);
   if (res == -1) {
       printf("Detection: board found but did not follow programming sequence\n");
@@ -328,9 +326,9 @@ int detect_ipac_model(int ipac_num, FILE *loghdl) {
           res = BOARD_TYPE_UNKNOWN;
           break;
      } /* switch */
-  }
+  } 
 
-  /* Undo our messing */
+  /* Undo our messing */ 
   /* TODO: this can be pulled when we start copying the data to a local array */
   default_ipac2[IPAC2_28_NUM_KEYCODES]     = 0;
   default_ipac2[IPAC2_32_NUM_KEYCODES]     = 0;
@@ -356,9 +354,9 @@ usb_dev_handle *init_ipac(int ipac_num, FILE *loghdl) {
   if (res < ipac_num) {
      printl(0, 0, loghdl, "init_ipac: Couldn't find the ipac specified.\n");
      return NULL;
-  }
+  } 
   ipac = ipac_arr[ipac_num];
-
+  
   ipac_hdl = usb_open(ipac);
   if (ipac_hdl == NULL) {
      printl(0, 0, loghdl, "init_ipac: failed to open the stinkin ipac\n");
@@ -375,7 +373,7 @@ usb_dev_handle *init_ipac(int ipac_num, FILE *loghdl) {
   res = usb_detach_kernel_driver_np(ipac_hdl, 0);
   if (res != 0) {
      printl(0,0,loghdl, "Failed to detach kernel driver: %d\n", res);
-     if (res == -61) {
+     if (res == -61) { 
         printl(0,0,loghdl, "\tOK: no driver claims this device\n");
      }
   }
@@ -415,7 +413,7 @@ int re_enumerate(int ipac_num, FILE *log_hdl) {
    res = usb_reset(ipac_hdl);
 
    close_ipac(ipac_hdl);
-
+   
    return res;
 }
 

@@ -47,7 +47,7 @@
 #define IPAC_USB_TIMEOUT	100
 
 /* All boards are programmed with a 96 byte block of data, sent in 3 chunks */
-#define IPAC_DATA_LEN      	96
+#define IPAC_DATA_LEN      	96 
 #define IPAC_BLOCK_LEN 		32
 
 /* 4 macros for each board, each composed of 4 keystrokes */
@@ -191,11 +191,9 @@ static char default_ipac4[96] = { 0x10, 0xF5, 0xF4, 0x14, 0xEB, 0x29, 0xF2, 0x1A
 #define IPAC_REQUEST_SEND_BLOCK   0xEB
 #define IPAC_REQUEST_RESPONSE     0xEA
 
-#define VENDOR_ID_ULTIMARC       0xD209  /* Older models */
-#define PRODUCT_ID_IPAC_USB      0x0301
 
-#define VENDOR_ID_ULTIMARC_2       0xD208  /* New model MiniPac */
-#define PRODUCT_ID_IPAC_USB_2     0x0310
+#define VENDOR_ID_ULTIMARC       0xD209
+#define PRODUCT_ID_IPAC_USB      0x0301 
 
 /* Number of I-PACs connected to 1 PC that we support */
 /* I can't imagine it would ever be more than this... so just use an array instead of llist */
