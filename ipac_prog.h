@@ -192,8 +192,11 @@ static char default_ipac4[96] = { 0x10, 0xF5, 0xF4, 0x14, 0xEB, 0x29, 0xF2, 0x1A
 #define IPAC_REQUEST_RESPONSE     0xEA
 
 
-#define VENDOR_ID_ULTIMARC       0xD209
+#define VENDOR_ID_ULTIMARC       0xD209	/* older models */
 #define PRODUCT_ID_IPAC_USB      0x0301 
+
+#define VENDOR_ID_ULTIMARC_2     0xD208	/* newer models */
+#define PRODUCT_ID_IPAC_USB_2    0x0310 
 
 /* Number of I-PACs connected to 1 PC that we support */
 /* I can't imagine it would ever be more than this... so just use an array instead of llist */

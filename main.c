@@ -33,8 +33,8 @@
 
 
 static const int MAJOR_VERSION = 0;
-static const int MINOR_VERSION = 7;
-static const int VERSION_DATE  = 20120216;
+static const int MINOR_VERSION = 8;
+static const int VERSION_DATE  = 20130621;
 
 /*************************************************************************
  * GLOBAL VARIABLES                                                      *

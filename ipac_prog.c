@@ -27,8 +27,10 @@ int find_ipacs(struct usb_device *dev_arr[], int max_num) {
   for (bus = usb_busses; bus; bus = bus->next) {
 
       for (dev = bus->devices; dev; dev = dev->next) {
-         if ((dev->descriptor.idVendor  == VENDOR_ID_ULTIMARC) && 
-             (dev->descriptor.idProduct == PRODUCT_ID_IPAC_USB)) { 
+         if (((dev->descriptor.idVendor  == VENDOR_ID_ULTIMARC) && 
+             (dev->descriptor.idProduct == PRODUCT_ID_IPAC_USB)) ||
+	    ((dev->descriptor.idVendor  == VENDOR_ID_ULTIMARC_2) && 
+             (dev->descriptor.idProduct == PRODUCT_ID_IPAC_USB_2))) { 
 
             //printf("Ultimarc IPAC found\n");
             dev_arr[idx] = dev;
